@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    targetClassName:完整的类名，该类是你需要修改的android原生类
+    impClassName：完整类名，该类是你实现了原生方法的类，一个原生方法对应一个你自己的类  
+    hookMethod：原生类中你需要修改的方法
+    invokeType：你希望你的方法在原生方法执行之前还是之后执行，必须传递整形，且是
+    类FrameworkApiList中以下数据中的一个
+    public static final int INVOKE_TYPE_BEFORE = 1;
+	public static final int INVOKE_TYPE_AFTER = 2;
+	具体类型请参见FrameworkApiList类
+ -->
+ 
+
+<!-- ===============================add for reuse================================= -->
+<component 
+    targetClassName="android.os.PowerManager$WakeLock"
+ 	impClassName="com.tencent.powerhook.hookfun.WakeLockHook">
+    
+	<targetMethod name="acquireLocked" invokeType="1">
+	    <methodArg>void</methodArg>
+	</targetMethod>
+	<targetMethod name="release" invokeType="1">
+	    <methodArg>int</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.app.AlarmManager"
+ 	impClassName="com.tencent.powerhook.hookfun.AlarmManagerHook">
+    
+	<targetMethod name="setImpl" invokeType="1">
+	    <methodArg>int</methodArg>
+	    <methodArg>long</methodArg>
+	    <methodArg>long</methodArg>
+	    <methodArg>long</methodArg>
+	    <methodArg>android.app.PendingIntent</methodArg>
+	    <methodArg>android.os.WorkSource</methodArg>
+	</targetMethod>
+	<targetMethod name="cancel" invokeType="1">
+	    <methodArg>android.app.PendingIntent</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.location.LocationManager"
+ 	impClassName="com.tencent.powerhook.hookfun.LocationManagerHook">
+    
+	<targetMethod name="requestLocationUpdates" invokeType="1">
+	    <methodArg>android.location.LocationRequest</methodArg>
+	    <methodArg>android.location.LocationListener</methodArg>
+	    <methodArg>android.os.Looper</methodArg>
+	    <methodArg>android.app.PendingIntent</methodArg>
+	</targetMethod>
+	
+	<targetMethod name="removeUpdates" invokeType="1">
+	    <methodArg>android.location.LocationListener</methodArg>
+	</targetMethod>
+	<targetMethod name="removeUpdates" invokeType="1">
+	    <methodArg>android.app.PendingIntent</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.net.wifi.WifiManager"
+ 	impClassName="com.tencent.powerhook.hookfun.WifiManagerHook">
+    
+	<targetMethod name="startScan" invokeType="1">
+	    <methodArg>void</methodArg>
+	</targetMethod>
+	<targetMethod name="startScan" invokeType="1">
+	    <methodArg>android.os.WorkSource</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.hardware.SystemSensorManager"
+ 	impClassName="com.tencent.powerhook.hookfun.SystemSensorManagerHook">
+    
+	<targetMethod name="registerListenerImpl" invokeType="1">
+	    <methodArg>android.hardware.SensorEventListener</methodArg>
+	    <methodArg>android.hardware.Sensor</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>android.os.Handler</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>int</methodArg>
+	</targetMethod>
+	
+	<targetMethod name="unregisterListenerImpl" invokeType="1">
+	    <methodArg>android.hardware.SensorEventListener</methodArg>
+	    <methodArg>android.hardware.Sensor</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.hardware.LegacySensorManager"
+ 	impClassName="com.tencent.powerhook.hookfun.LegacySensorManagerHook">
+    
+	<targetMethod name="registerLegacyListener" invokeType="1">
+	    <methodArg>int</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>android.hardware.SensorListener</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>int</methodArg>
+	</targetMethod>
+	<targetMethod name="unregisterLegacyListener" invokeType="1">
+	    <methodArg>int</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>android.hardware.SensorListener</methodArg>
+	    <methodArg>int</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.media.MediaScannerConnection"
+ 	impClassName="com.tencent.powerhook.hookfun.MediaScanHook">
+    
+	<targetMethod name="scanFile" invokeType="1">
+	    <methodArg>java.lang.String</methodArg>
+	    <methodArg>java.lang.String</methodArg>
+	</targetMethod>
+</component>
+
+<component 
+    targetClassName="android.app.ActivityManagerProxy"
+ 	impClassName="com.tencent.powerhook.hookfun.BroadcastHook">
+    
+	<targetMethod name="broadcastIntent" invokeType="1">
+	    <methodArg>android.app.IApplicationThread</methodArg>
+	    <methodArg>android.content.Intent</methodArg>
+	    <methodArg>java.lang.String</methodArg>
+	    <methodArg>android.content.IIntentReceiver</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>java.lang.String</methodArg>
+	    <methodArg>android.os.Bundle</methodArg>
+	    <methodArg>java.lang.String</methodArg>
+	    <methodArg>int</methodArg>
+	    <methodArg>boolean</methodArg>
+	    <methodArg>boolean</methodArg>
+	    <methodArg>int</methodArg>
+	</targetMethod>
+</component>
+ <!-- ============================================powersave end==================================================== -->
+

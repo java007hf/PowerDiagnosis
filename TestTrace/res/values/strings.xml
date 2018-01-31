@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestTrace</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="testalarm">testalarm</string>
+    <string name="testcpu">testcpu</string>
+    <string name="testgps">testgps</string>
+    <string name="testsensor">testsensor</string>
+    <string name="testwakelock">testwakelock</string>
+    <string name="testwifiscan">testwifiscan</string>
+	<string name="testmediascan">testmediascan</string>
+</resources>

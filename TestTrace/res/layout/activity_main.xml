@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.testtrace.MainActivity" >
+
+     <Button
+        android:id="@+id/testalarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testalarm" />
+     
+     <Button
+        android:id="@+id/testcpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testcpu" />
+     
+     <Button
+        android:id="@+id/testgps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testgps" />
+     
+     <Button
+        android:id="@+id/testsensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testsensor" />
+     
+     <Button
+        android:id="@+id/testwakelock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testwakelock" />
+     
+     <Button
+        android:id="@+id/testwifiscan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testwifiscan" />
+     
+     <Button
+        android:id="@+id/testmediascan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testmediascan" />
+</LinearLayout>
